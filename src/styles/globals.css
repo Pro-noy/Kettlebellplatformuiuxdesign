@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #0A0E27;
+  --foreground: #FFFFFF;
+  --card: #1A1F3A;
+  --card-foreground: #FFFFFF;
+  --popover: #1A1F3A;
+  --popover-foreground: #FFFFFF;
+  --primary: #FF6B35;
+  --primary-foreground: #FFFFFF;
+  --secondary: #6C63FF;
+  --secondary-foreground: #FFFFFF;
+  --muted: #1A1F3A;
+  --muted-foreground: #A0AEC0;
+  --accent: #00D9FF;
+  --accent-foreground: #0A0E27;
+  --destructive: #FF3D71;
+  --destructive-foreground: #ffffff;
+  --border: #2D3454;
+  --input: #1A1F3A;
+  --input-background: #1A1F3A;
+  --switch-background: #2D3454;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #FF6B35;
+  --chart-1: #FF6B35;
+  --chart-2: #6C63FF;
+  --chart-3: #00D9FF;
+  --chart-4: #FFD93D;
+  --chart-5: #6BCF7F;
+  --radius: 0.75rem;
+  --sidebar: #0F1129;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #FF6B35;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1A1F3A;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #2D3454;
+  --sidebar-ring: #FF6B35;
+}
+
+.dark {
+  --background: #0A0E27;
+  --foreground: #FFFFFF;
+  --card: #1A1F3A;
+  --card-foreground: #FFFFFF;
+  --popover: #1A1F3A;
+  --popover-foreground: #FFFFFF;
+  --primary: #FF6B35;
+  --primary-foreground: #FFFFFF;
+  --secondary: #6C63FF;
+  --secondary-foreground: #FFFFFF;
+  --muted: #1A1F3A;
+  --muted-foreground: #A0AEC0;
+  --accent: #00D9FF;
+  --accent-foreground: #0A0E27;
+  --destructive: #FF3D71;
+  --destructive-foreground: #ffffff;
+  --border: #2D3454;
+  --input: #1A1F3A;
+  --ring: #FF6B35;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #FF6B35;
+  --chart-2: #6C63FF;
+  --chart-3: #00D9FF;
+  --chart-4: #FFD93D;
+  --chart-5: #6BCF7F;
+  --sidebar: #0F1129;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #FF6B35;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1A1F3A;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #2D3454;
+  --sidebar-ring: #FF6B35;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Custom Gradient Classes */
+.gradient-primary {
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #6C63FF 0%, #4834DF 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, #00D9FF 0%, #00B4D8 100%);
+}
+
+.gradient-card {
+  background: linear-gradient(135deg, #1A1F3A 0%, #252B4A 100%);
+}
+
+.gradient-success {
+  background: linear-gradient(135deg, #6BCF7F 0%, #48BB78 100%);
+}
+
+.glass-effect {
+  background: rgba(26, 31, 58, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.shadow-glow-primary {
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+}
+
+.shadow-glow-secondary {
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.3);
+}
+
+.shadow-glow-accent {
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
