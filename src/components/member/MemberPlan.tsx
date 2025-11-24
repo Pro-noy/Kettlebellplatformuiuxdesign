@@ -58,8 +58,8 @@ export function MemberPlan() {
   const [selectedDay, setSelectedDay] = useState(weekPlan[0]);
 
   return (
-    <div className="pb-20 bg-[#1A1A1A] min-h-screen">
-      <div className="p-6">
+    <div className="pb-20 bg-[#0A0E27] min-h-screen overflow-x-hidden overflow-y-auto">
+      <div className="p-6 max-w-full">
         <h1 className="text-2xl mb-6 text-white">My Plan</h1>
 
         <div className="flex gap-2 mb-6 overflow-x-auto pb-2">

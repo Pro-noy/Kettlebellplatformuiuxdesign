@@ -21,8 +21,8 @@ const unreadMessages = [
 
 export function TrainerHome() {
   return (
-    <div className="pb-20 bg-[#0A0E27] min-h-screen">
-      <div className="p-6 space-y-6">
+    <div className="pb-20 bg-[#0A0E27] min-h-screen overflow-x-hidden overflow-y-auto">
+      <div className="p-6 space-y-6 max-w-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}

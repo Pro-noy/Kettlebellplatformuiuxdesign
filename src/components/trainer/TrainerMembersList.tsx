@@ -20,8 +20,8 @@ interface TrainerMembersListProps {
 
 export function TrainerMembersList({ onMemberClick }: TrainerMembersListProps) {
   return (
-    <div className="pb-20 bg-[#1A1A1A] min-h-screen">
-      <div className="p-6">
+    <div className="pb-20 bg-[#0A0E27] min-h-screen overflow-x-hidden overflow-y-auto">
+      <div className="p-6 max-w-full">
         <h1 className="text-2xl mb-6 text-white">My Members</h1>
 
         <div className="relative mb-6">

@@ -7,8 +7,8 @@ export function MemberUpload() {
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
 
   return (
-    <div className="pb-20 bg-[#1A1A1A] min-h-screen">
-      <div className="p-6">
+    <div className="pb-20 bg-[#0A0E27] min-h-screen overflow-x-hidden overflow-y-auto">
+      <div className="p-6 max-w-full">
         <h1 className="text-2xl mb-2 text-white">Upload Video</h1>
         <p className="text-[#B0B0B0] mb-6">Share your workout video with your trainer</p>
 

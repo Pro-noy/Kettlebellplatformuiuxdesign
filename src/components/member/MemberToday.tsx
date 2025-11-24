@@ -42,8 +42,8 @@ export function MemberToday() {
   };
 
   return (
-    <div className="pb-20 bg-[#0A0E27] min-h-screen">
-      <div className="p-6 space-y-6">
+    <div className="pb-20 bg-[#0A0E27] min-h-screen overflow-x-hidden overflow-y-auto">
+      <div className="p-6 space-y-6 max-w-full">
         {/* Header with Stats */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -54,7 +54,7 @@ export function MemberToday() {
               <h1 className="text-3xl text-white mb-1">Welcome back! 👋</h1>
               <p className="text-[#A0AEC0]">Let's crush today's goals</p>
             </div>
-            <div className="flex items-center gap-2 bg-gradient-to-r from-[#FF6B35] to-[#F7931E] px-4 py-2 rounded-xl">
+            <div className="flex items-center gap-2 bg-gradient-to-r from-[#FF6B35] to-[#F7931E] px-4 py-2 rounded-xl shadow-glow-primary">
               <Flame size={20} className="text-white" />
               <div className="text-white">
                 <p className="text-xs opacity-80">Streak</p>

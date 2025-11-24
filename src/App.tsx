@@ -7,12 +7,15 @@ import { TrainerHome } from './components/trainer/TrainerHome';
 import { TrainerMembersList } from './components/trainer/TrainerMembersList';
 import { TrainerMemberDetail } from './components/trainer/TrainerMemberDetail';
 import { TrainerVideoReview } from './components/trainer/TrainerVideoReview';
+import { TrainerChat } from './components/trainer/TrainerChat';
+import { TrainerProfile } from './components/trainer/TrainerProfile';
 import { MemberToday } from './components/member/MemberToday';
 import { MemberPlan } from './components/member/MemberPlan';
 import { MemberUpload } from './components/member/MemberUpload';
 import { MemberProgress } from './components/member/MemberProgress';
 import { MemberChat } from './components/member/MemberChat';
 import { BottomNav } from './components/BottomNav';
+import { Login } from './components/Login';
 import { Button } from './components/ui/button';
 import { motion } from 'motion/react';
 import { 
@@ -33,11 +36,12 @@ import './styles/globals.css';
 
 type Role = 'gym-owner' | 'trainer' | 'member';
 type GymOwnerScreen = 'dashboard' | 'trainers' | 'members' | 'analytics';
-type TrainerScreen = 'home' | 'members-list' | 'member-detail' | 'video-review';
+type TrainerScreen = 'home' | 'members-list' | 'member-detail' | 'video-review' | 'chat' | 'profile';
 type MemberScreen = 'today' | 'plan' | 'upload' | 'progress' | 'chat';
 
 export default function App() {
   const [role, setRole] = useState<Role | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   // Gym Owner state
   const [gymOwnerScreen, setGymOwnerScreen] = useState<GymOwnerScreen>('dashboard');
@@ -156,6 +160,20 @@ export default function App() {
     );
   }
 
+  // Show login screen if role is selected but not logged in
+  if (role && !isLoggedIn) {
+    return (
+      <Login
+        role={role}
+        onLoginSuccess={() => setIsLoggedIn(true)}
+        onBack={() => {
+          setRole(null);
+          setIsLoggedIn(false);
+        }}
+      />
+    );
+  }
+
   // Gym Owner Dashboard
   if (role === 'gym-owner') {
     return (
@@ -266,16 +284,19 @@ export default function App() {
     };
 
     return (
-      <div className="max-w-md mx-auto bg-[#1A1A1A] min-h-screen relative">
+      <div className="max-w-md mx-auto bg-[#0A0E27] min-h-screen relative overflow-x-hidden">
         {/* Back button for role switching */}
         <div className="absolute top-4 right-4 z-50">
           <Button
-            onClick={() => setRole(null)}
+            onClick={() => {
+              setRole(null);
+              setIsLoggedIn(false);
+            }}
             variant="outline"
             size="sm"
             className="border-[#4A4E5A] text-[#B0B0B0] hover:text-white hover:bg-[#4A4E5A]"
           >
-            Switch Role
+            Logout
           </Button>
         </div>
 
@@ -290,6 +311,8 @@ export default function App() {
         {trainerScreen === 'video-review' && (
           <TrainerVideoReview onBack={() => setTrainerScreen('home')} />
         )}
+        {trainerScreen === 'chat' && <TrainerChat />}
+        {trainerScreen === 'profile' && <TrainerProfile />}
 
         <BottomNav
           items={[
@@ -308,14 +331,14 @@ export default function App() {
             {
               icon: <MessageSquare size={24} />,
               label: 'Chat',
-              active: false,
-              onClick: () => {},
+              active: trainerScreen === 'chat',
+              onClick: () => setTrainerScreen('chat'),
             },
             {
               icon: <User size={24} />,
               label: 'Profile',
-              active: false,
-              onClick: () => {},
+              active: trainerScreen === 'profile',
+              onClick: () => setTrainerScreen('profile'),
             },
           ]}
         />
@@ -326,16 +349,19 @@ export default function App() {
   // Member Mobile App
   if (role === 'member') {
     return (
-      <div className="max-w-md mx-auto bg-[#1A1A1A] min-h-screen relative">
+      <div className="max-w-md mx-auto bg-[#0A0E27] min-h-screen relative overflow-x-hidden">
         {/* Back button for role switching */}
         <div className="absolute top-4 right-4 z-50">
           <Button
-            onClick={() => setRole(null)}
+            onClick={() => {
+              setRole(null);
+              setIsLoggedIn(false);
+            }}
             variant="outline"
             size="sm"
             className="border-[#4A4E5A] text-[#B0B0B0] hover:text-white hover:bg-[#4A4E5A]"
           >
-            Switch Role
+            Logout
           </Button>
         </div>
 

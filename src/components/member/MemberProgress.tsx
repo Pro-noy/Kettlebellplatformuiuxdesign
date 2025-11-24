@@ -44,13 +44,13 @@ const feedbackData = [
 ];
 
 export function MemberProgress() {
-  const [activeTab, setActiveTab] = useState('stats');
+  const [activeTab, setActiveTab] = useState('weight');
   const weightChange = weightData[0].weight - weightData[weightData.length - 1].weight;
   const avgAttendance = attendanceData.reduce((acc, curr) => acc + curr.days, 0) / attendanceData.length;
 
   return (
-    <div className="pb-20 bg-[#0A0E27] min-h-screen">
-      <div className="p-6 space-y-6">
+    <div className="pb-20 bg-[#0A0E27] min-h-screen overflow-x-hidden overflow-y-auto">
+      <div className="p-6 space-y-6 max-w-full">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,7 +101,7 @@ export function MemberProgress() {
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="w-full bg-[#1A1F3A] border border-[#2D3454] rounded-xl mb-6 p-1">
             <TabsTrigger 
-              value="stats" 
+              value="weight" 
               className="flex-1 data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#FF6B35] data-[state=active]:to-[#F7931E] data-[state=active]:text-white text-[#A0AEC0] rounded-lg transition-all"
             >
               My Stats
@@ -114,7 +114,7 @@ export function MemberProgress() {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="stats" className="space-y-6">
+          <TabsContent value="weight" className="space-y-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
