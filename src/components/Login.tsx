@@ -16,9 +16,9 @@ interface LoginProps {
 
 // Mock user credentials
 const mockCredentials = {
-  'gym-owner': { id: 'owner001', password: 'gym2024' },
-  'trainer': { id: 'trainer001', password: 'train2024' },
-  'member': { id: 'member001', password: 'member2024' },
+  'gym-owner': { id: 'gym25', password: 'gym25' },
+  'trainer': { id: 'tra25', password: 'tra25' },
+  'member': { id: 'mem25', password: 'mem25' },
 };
 
 export function Login({ role, onLoginSuccess, onBack }: LoginProps) {
